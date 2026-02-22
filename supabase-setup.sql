@@ -273,3 +273,12 @@ begin
   (proj_id, 'Stamp concrete design delay', 'High', 'Medium', 'Active', 'Design must be obtained from ED/Architect in Week 2. Escalate if not received.', 'Project Manager');
 
 end $$;
+
+-- ============================================
+-- MIGRATION: Add milestone columns to resources
+-- Run this if you already ran the original SQL
+-- ============================================
+alter table public.resources add column if not exists milestone text;
+alter table public.resources add column if not exists milestone_date date;
+alter table public.resources add column if not exists supplier text;
+alter table public.resources add column if not exists notes text;
